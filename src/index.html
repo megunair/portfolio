@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Meghna</h1>
+            <p>I create engaging digital experiences through code and design</p>
+        </div>
+        <canvas class="interactive-background" id="bgCanvas"></canvas>
+    </div>
+
+    <section class="work-section" id="work">
+        <div class="work-grid">
+            <div class="work-item">
+                <h3>Physical</h3>
+                <p>Physical products built within the landscape of experential design</p>
+            </div>
+            <div class="work-item">
+                <h3>Digital</h3>
+                <p>Digital products to navigate storytelling through online structures</p>
+            </div>
+            <div class="work-item">
+                <h3>Business</h3>
+                <p>Processes of product design to bring possible ideas to market</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="js/particles.js"></script>
+    <script src="js/smoothScroll.js"></script>
+    <script src="js/main.js"></script>
+</body>
