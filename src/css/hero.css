@@ -13,16 +13,23 @@
     z-index: 1;
 }
 
+/* Update your existing h1 styles to ensure text is readable */
 .hero h1 {
     font-size: 4rem;
-    margin-bottom: 1rem;
+    font-family:  'Javanese Text';
+    margin-bottom: 3rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards;
+    position: relative;
+    color: darkseagreen; /* Makes text readable against black background */
+    padding: 50px 20px 10px 20px; /* Add some padding around the text */
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 1); /* Optional: adds depth */
 }
 
 .hero p {
     font-size: 1.5rem;
+    margin-top: 2em;
     margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(20px);
@@ -37,4 +44,36 @@
     height: 100%;
     pointer-events: none;
     z-index: 0;
+}
+
+.paintbrush-container {
+    position: relative;
+    display: inline-block;
+}
+
+.brush-stroke {
+    position: absolute;
+    bottom: -1em;
+    left: -6em;
+    
+    width: 140%;
+    height: 140%;
+    background-image: url('../assets/images/brush-stroke.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: brushReveal 1s forwards 1s;
+}
+
+@keyframes brushReveal {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
 }

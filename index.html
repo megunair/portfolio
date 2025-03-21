@@ -13,14 +13,27 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <div class="dropdown">
+            <button onclick="window.location.href = 'work.html'" class="dropbtn"><a href="#" class="button-link">Work</a></button>
+            <div class="dropdown-content">
+                <a href="#">Digital</a>
+                <a href="#">Physical</a>
+                <a href="#">Business</a>
+            </div>
+        </div>
+        <button class="dropbtn"><a href="#" class="button-link">About</a></button>
+        <button class="dropbtn"><a href="#" class="button-link">Contact</a></button>
+        <button class="dropbtn"><a href="#" class="button-link">Resume</a></button>
+        <!--<a href="#about" class="nav-link">About</a>-->
+        <!--<a href="#contact" class="nav-link">Contact</a>-->
     </nav>
 
     <div class="hero">
         <div class="hero-content">
-            <h1>Hello, I'm Meghna</h1>
+            <div class="paintbrush-container">
+                <div class="brush-stroke"></div>
+                <h1>Hello, I'm Meghna</h1>
+            </div>
             <p>I create engaging digital experiences through code and design</p>
         </div>
         <canvas class="interactive-background" id="bgCanvas"></canvas>
@@ -61,6 +74,6 @@
 
     <!-- JavaScript Files -->
     <script src="src/js/particles.js"></script>
-    <script src="src/js/smoothScroll.js"></script>
     <script src="src/js/main.js"></script>
+    
 </body>
