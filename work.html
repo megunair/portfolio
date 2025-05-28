@@ -1,11 +1,437 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Meghna Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        nav {
+            margin: 3rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #f5f5f5;
+        }
+
+        nav a.active {
+            font-weight: 500;
+        }
+
+        .content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filter {
+            background: #f8f9fa;
+            color: #495057;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-filter:hover, .category-filter.active {
+            background: #333;
+            color: #fff;
+        }
+
+        .placeholder {
+            background-color: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            transition: border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .placeholder:hover {
+            border-color: #adb5bd;
+        }
+
+        .placeholder p {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #666;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .categories {
+                gap: 0.5rem;
+            }
+
+            .category-filter {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Meghna Nair</h1>
+            <p class="subtitle">Developer / Designer / Creator</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="work.html" class="active">Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
+        <main class="content">
+            <section>
+                <h2>My Work</h2>
+                
+                <div class="categories">
+                    <button class="category-filter active" data-filter="all">All</button>
+                    <button class="category-filter" data-filter="digital">Digital</button>
+                    <button class="category-filter" data-filter="physical">Physical</button>
+                    <button class="category-filter" data-filter="business">Business</button>
+                </div>
+
+                <div class="work-grid">
+                    <div class="project-card" data-category="digital">
+                        <div class="project-image">
+                            Project Image Placeholder
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Digital Project One</h3>
+                            <p class="project-description">Interactive web application with modern UI/UX design. Built with React and Node.js, featuring real-time data visualization and responsive design.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Live</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="physical">
+                        <div class="project-image">
+                            Project Image Placeholder
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Physical Product Design</h3>
+                            <p class="project-description">Experiential design project focusing on user interaction and tactile experience. From concept to prototype development.</p>
+                            <div class="project-tags">
+                                <span class="tag">Product Design</span>
+                                <span class="tag">Prototyping</span>
+                                <span class="tag">UX Research</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="business">
+                        <div class="project-image">
+                            Project Image Placeholder
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Business Strategy Project</h3>
+                            <p class="project-description">Strategic product development from ideation to market launch. Market research, competitive analysis, and go-to-market strategy.</p>
+                            <div class="project-tags">
+                                <span class="tag">Strategy</span>
+                                <span class="tag">Market Research</span>
+                                <span class="tag">Product Management</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="digital">
+                        <div class="project-image">
+                            Project Image Placeholder
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Digital Project Two</h3>
+                            <p class="project-description">Mobile-first web application with focus on performance and accessibility. Integrated with modern APIs and cloud services.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Mobile First</span>
+                                <span class="tag">API Integration</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Live</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placeholder">
+                    <p>Add your actual projects here. Replace the placeholder content with your real work, including project images, descriptions, and links to live demos or case studies.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Meghna Nair. Simple, clean, adaptable.</p>
+            <div class="social-links">
+                <a href="https://github.com/megunair">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Email</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Category filtering
+        const filterButtons = document.querySelectorAll('.category-filter');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Add animation on load
+        window.addEventListener('load', () => {
+            document.querySelector('.content').style.animationDelay = '0s';
+        });
+    </script>
 </body>
 </html>
