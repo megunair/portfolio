@@ -64,20 +64,22 @@
             transition: background-color 0.3s ease;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             background-color: #f5f5f5;
         }
 
-        .section {
-            margin-bottom: 4rem;
+        nav a.active {
+            font-weight: 500;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
         }
-
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
 
         @keyframes fadeInUp {
             to {
@@ -86,73 +88,120 @@
             }
         }
 
-        h2 {
-            font-size: 1.5rem;
+        .hero h2 {
+            font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
-            text-align: center;
+            color: #333;
         }
 
-        .content {
-            text-align: center;
+        .hero p {
+            font-size: 1.1rem;
             color: #666;
             line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 3rem;
         }
 
-        .placeholder {
-            background-color: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            border-radius: 8px;
-            padding: 3rem 2rem;
-            margin: 1rem 0;
-            transition: border-color 0.3s ease;
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .placeholder:hover {
-            border-color: #adb5bd;
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .placeholder p {
-            color: #6c757d;
-            font-style: italic;
+        .cta-primary {
+            background: #333;
+            color: #fff;
         }
 
-        .grid {
+        .cta-primary:hover {
+            background: #222;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #333;
+            border: 1px solid #dee2e6;
+        }
+
+        .cta-secondary:hover {
+            background: #f8f9fa;
+            border-color: #333;
+        }
+
+        .preview-section {
+            margin-top: 6rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .preview-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
-        .card {
+        .preview-card {
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 2rem;
-            text-align: left;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
+        .preview-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .card h3 {
+        .preview-card h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
             font-weight: 500;
         }
 
-        .card p {
+        .preview-card p {
             color: #666;
             font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .preview-link:hover {
+            background: #333;
+            color: #fff;
+            border-color: #333;
         }
 
         footer {
             text-align: center;
             padding: 3rem 0;
             border-top: 1px solid #eee;
-            margin-top: 4rem;
+            margin-top: 6rem;
         }
 
         .social-links {
@@ -183,11 +232,19 @@
                 font-size: 2rem;
             }
 
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
             nav ul {
                 gap: 1rem;
             }
 
-            .grid {
+            .cta-buttons {
+                gap: 1rem;
+            }
+
+            .preview-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
@@ -202,46 +259,43 @@
             
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <section id="about" class="section">
-                <h2>About</h2>
-                <div class="content">
-                    <div class="placeholder">
-                        <p>Tell your story here. What drives you? What are you passionate about?</p>
-                    </div>
+            <section class="hero">
+                <h2>Creating engaging digital experiences</h2>
+                <p>I design and develop thoughtful solutions that bridge the gap between technology and human experience. From digital interfaces to physical products, I bring ideas to life with purpose and precision.</p>
+                
+                <div class="cta-buttons">
+                    <a href="work.html" class="cta-button cta-primary">View My Work</a>
+                    <a href="contact.html" class="cta-button cta-secondary">Get In Touch</a>
                 </div>
             </section>
 
-            <section id="work" class="section">
-                <h2>Work</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Digital Projects</h3>
-                        <p>Engaging digital experiences through code and design. Interactive web applications and creative solutions.</p>
+            <section class="preview-section">
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <h3>About Me</h3>
+                        <p>Learn about my journey, skills, and what drives me to create meaningful experiences.</p>
+                        <a href="about.html" class="preview-link">Learn More</a>
                     </div>
-                    <div class="card">
-                        <h3>Physical Products</h3>
-                        <p>Physical products built within the landscape of experiential design and thoughtful interaction.</p>
+                    
+                    <div class="preview-card">
+                        <h3>My Work</h3>
+                        <p>Explore my projects across digital, physical, and business domains.</p>
+                        <a href="work.html" class="preview-link">View Projects</a>
                     </div>
-                    <div class="card">
-                        <h3>Business Solutions</h3>
-                        <p>Processes of product design to bring possible ideas to market with strategic thinking.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="section">
-                <h2>Get In Touch</h2>
-                <div class="content">
-                    <div class="placeholder">
-                        <p>How can people reach you? Add your preferred contact methods here.</p>
+                    
+                    <div class="preview-card">
+                        <h3>Let's Connect</h3>
+                        <p>Ready to collaborate? Reach out and let's discuss your next project.</p>
+                        <a href="contact.html" class="preview-link">Contact Me</a>
                     </div>
                 </div>
             </section>
@@ -258,26 +312,21 @@
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add a subtle parallax effect
+        // Add subtle parallax effect
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallax = document.querySelector('header');
-            const speed = scrolled * 0.5;
+            const speed = scrolled * 0.3;
             parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Add entrance animations on load
+        window.addEventListener('load', () => {
+            const hero = document.querySelector('.hero');
+            const preview = document.querySelector('.preview-section');
+            
+            hero.style.animationDelay = '0s';
+            preview.style.animationDelay = '0.2s';
         });
     </script>
 </body>
